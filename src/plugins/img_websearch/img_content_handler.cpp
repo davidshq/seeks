@@ -92,7 +92,7 @@ namespace seeks_plugins
   void img_content_handler::feature_based_similarity_scoring(img_query_context *qc,
       const size_t &nsps,
       search_snippet **sps,
-      search_snippet *ref_sp) throw (sp_exception)
+      search_snippet *ref_sp) noexcept(false)
   {
     if (!ref_sp)
       {

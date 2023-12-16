@@ -293,7 +293,7 @@ namespace seeks_plugins
 
   void websearch::preprocess_parameters(const hash_map<const char*, const char*, hash<const char*>, eqstr> *parameters,
                                         client_state *csp,
-                                        bool &has_lang) throw (sp_exception)
+                                        bool &has_lang) noexcept(false)
   {
     // decode query (URL encoded).
     const char *query = miscutil::lookup(parameters,"q");

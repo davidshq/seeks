@@ -85,7 +85,7 @@ namespace seeks_plugins
                                std::multimap<double,std::string,std::less<double> > &related_queries,
                                peer *pe,
                                query_context *qc = NULL,
-                               const bool &wait_external_sources=true) throw (sp_exception) {};
+                               const bool &wait_external_sources=true) noexcept(false) {};
 
       virtual void estimate_ranks(const std::string &query,
                                   const std::string &lang,
@@ -93,7 +93,7 @@ namespace seeks_plugins
                                   std::vector<search_snippet*> &snippets,
                                   const std::string &host="",
                                   const int &port=-1,
-                                  const std::string &rsc="") throw (sp_exception) {};
+                                  const std::string &rsc="") noexcept(false) {};
 
       // DEPRECATED
       virtual void recommend_urls(const std::string &query,
@@ -101,18 +101,18 @@ namespace seeks_plugins
                                   const int &radius,
                                   hash_map<uint32_t,search_snippet*,id_hash_uint> &snippet,
                                   const std::string &host="",
-                                  const int &port=-1) throw (sp_exception) {};
+                                  const int &port=-1) noexcept(false) {};
 
       virtual void thumb_down_url(const std::string &query,
                                   const std::string &lang,
-                                  const std::string &url) throw (sp_exception) {};
+                                  const std::string &url) noexcept(false) {};
 
       void fetch_query_data(const std::string &query,
                             const std::string &lang,
                             const int &radius,
                             hash_map<const char*,query_data*,hash<const char*>,eqstr> &qdata,
                             hash_map<const char*,std::vector<query_data*>,hash<const char*>,eqstr> &inv_qdata,
-                            peer *pe) throw (sp_exception);
+                            peer *pe) noexcept(false);
 
       void fetch_user_db_record(const std::string &query,
                                 user_db *udb,
@@ -147,7 +147,7 @@ namespace seeks_plugins
 
       static db_record* find_bqc(const std::string &host, const int &port,
                                  const std::string &path, const std::string &query,
-                                 const int &radius, const bool &use_store=true) throw (sp_exception);
+                                 const int &radius, const bool &use_store=true) noexcept(false);
 
       void filter_extracted_queries(const std::string &query,
                                     const std::string &lang,
@@ -179,7 +179,7 @@ namespace seeks_plugins
                                std::multimap<double,std::string,std::less<double> > &related_queries,
                                peer *pe,
                                query_context *qc = NULL,
-                               const bool &wait_external_sources=true) throw (sp_exception);
+                               const bool &wait_external_sources=true) noexcept(false);
 
       virtual void estimate_ranks(const std::string &query,
                                   const std::string &lang,
@@ -187,7 +187,7 @@ namespace seeks_plugins
                                   std::vector<search_snippet*> &snippets,
                                   const std::string &host="",
                                   const int &port=-1,
-                                  const std::string &rsc="") throw (sp_exception);
+                                  const std::string &rsc="") noexcept(false);
 
       void estimate_ranks(const std::string &query,
                           const std::string &lang,
@@ -202,7 +202,7 @@ namespace seeks_plugins
                                   const int &radius,
                                   hash_map<uint32_t,search_snippet*,id_hash_uint> &snippets,
                                   const std::string &host="",
-                                  const int &port=-1) throw (sp_exception);
+                                  const int &port=-1) noexcept(false);
 
       void recommend_urls(const std::string &query,
                           const std::string &lang,
@@ -216,7 +216,7 @@ namespace seeks_plugins
 
       virtual void thumb_down_url(const std::string &query,
                                   const std::string &lang,
-                                  const std::string &url) throw (sp_exception);
+                                  const std::string &url) noexcept(false);
 
       float estimate_rank(search_snippet *s,
                           const hash_map<uint32_t,bool,id_hash_uint> *filter,

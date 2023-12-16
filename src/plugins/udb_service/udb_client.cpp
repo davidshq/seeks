@@ -52,7 +52,7 @@ namespace seeks_plugins
                                          const int &port,
                                          const std::string &path,
                                          const std::string &key,
-                                         const std::string &pn) throw (sp_exception)
+                                         const std::string &pn) noexcept(false)
   {
     std::string url = host;
     if (port != -1)
@@ -108,7 +108,7 @@ namespace seeks_plugins
                                   const int &port,
                                   const std::string &path,
                                   const std::string &query,
-                                  const uint32_t &expansion) throw (sp_exception)
+                                  const uint32_t &expansion) noexcept(false)
   {
     static std::string ctype = "Content-Type: application/x-protobuf";
 

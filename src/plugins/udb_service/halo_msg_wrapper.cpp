@@ -27,7 +27,7 @@ namespace seeks_plugins
 
   void halo_msg_wrapper::deserialize(const std::string &msg,
                                      uint32_t &expansion,
-                                     std::vector<std::string> &hashes) throw (sp_exception)
+                                     std::vector<std::string> &hashes) noexcept(false)
   {
     hash_halo h;
     if (!h.ParseFromString(msg))
@@ -43,7 +43,7 @@ namespace seeks_plugins
 
   void halo_msg_wrapper::serialize(const uint32_t &expansion,
                                    const hash_multimap<uint32_t,DHTKey,id_hash_uint> &qhashes,
-                                   std::string &msg) throw (sp_exception)
+                                   std::string &msg) noexcept(false)
   {
     hash_halo h;
     h.set_expansion(expansion);

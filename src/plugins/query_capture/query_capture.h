@@ -78,10 +78,10 @@ namespace seeks_plugins
       static void store_queries(const std::string &query,
                                 const query_context *qc,
                                 const std::string &url, const std::string &host
-                               ) throw (sp_exception);
+                               ) noexcept(false);
 
       // store_query called from websearch plugin.
-      void store_queries(const std::string &query) const throw (sp_exception);
+      void store_queries(const std::string &query) const noexcept(false);
 
       static void process_url(std::string &url, std::string &host);
 
@@ -106,21 +106,21 @@ namespace seeks_plugins
                                 const query_context *qc,
                                 const std::string &url, const std::string &host,
                                 const std::string &plugin_name,
-                                const int &radius=-1) throw (sp_exception);
+                                const int &radius=-1) noexcept(false);
 
       /**
        * \brief stores queries halo alone.
        */
       static void store_queries(const std::string &query,
                                 const std::string &plugin_name,
-                                const int &radius=-1) throw (sp_exception);
+                                const int &radius=-1) noexcept(false);
 
       /**
        * \brief removes a queries halo and all attached URLs.
        */
       static void remove_queries(const std::string &query,
                                  const std::string &plugin_name,
-                                 const int &radius=-1) throw (sp_exception);
+                                 const int &radius=-1) noexcept(false);
 
       /**
        * \brief store query alone.
@@ -128,7 +128,7 @@ namespace seeks_plugins
       static void store_query(const DHTKey &key,
                               const std::string &query,
                               const uint32_t &radius,
-                              const std::string &plugin_name) throw (sp_exception);
+                              const std::string &plugin_name) noexcept(false);
 
       /**
        * \brief removes query and attached URLs.
@@ -136,7 +136,7 @@ namespace seeks_plugins
       static void remove_query(const DHTKey &key,
                                const std::string &query,
                                const uint32_t &radius,
-                               const std::string &plugin_name) throw (sp_exception);
+                               const std::string &plugin_name) noexcept(false);
 
       /**
        * \brief store query and URL.
@@ -145,7 +145,7 @@ namespace seeks_plugins
                             const std::string &url, const std::string &host,
                             const uint32_t &radius,
                             const std::string &plugin_name,
-                            const search_snippet *sp=NULL) throw (sp_exception);
+                            const search_snippet *sp=NULL) noexcept(false);
 
       /**
        * \brief removes a URL attached to a query.
@@ -153,7 +153,7 @@ namespace seeks_plugins
       static void remove_url(const DHTKey &key, const std::string &query,
                              const std::string &url, const std::string &host,
                              const short &url_hits, const uint32_t &radius,
-                             const std::string &plugin_name) throw (sp_exception);
+                             const std::string &plugin_name) noexcept(false);
 
       static void get_useful_headers(const std::list<const char*> &headers,
                                      std::string &host, std::string &referer,

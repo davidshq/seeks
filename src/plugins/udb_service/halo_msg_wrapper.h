@@ -35,11 +35,11 @@ namespace seeks_plugins
     public:
       static void deserialize(const std::string &msg,
                               uint32_t &expansion,
-                              std::vector<std::string> &qhashes) throw (sp_exception);
+                              std::vector<std::string> &qhashes) noexcept(false);
 
       static void serialize(const uint32_t &expansion,
                             const hash_multimap<uint32_t,DHTKey,id_hash_uint> &qhashes,
-                            std::string &msg) throw (sp_exception);
+                            std::string &msg) noexcept(false);
   };
 
 } /* end of namespace. */

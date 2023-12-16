@@ -312,12 +312,12 @@ namespace seeks_plugins
   void query_capture::store_queries(const std::string &q,
                                     const query_context *qc,
                                     const std::string &url, const std::string &host
-                                   ) throw (sp_exception)
+                                   ) noexcept(false)
   {
     query_capture_element::store_queries(q,qc,url,host,"query-capture");
   }
 
-  void query_capture::store_queries(const std::string &query) const throw (sp_exception)
+  void query_capture::store_queries(const std::string &query) const noexcept(false)
   {
     pthread_rwlock_rdlock(&query_capture_configuration::_config->_conf_rwlock);
     query_capture_element::store_queries(query,get_name());
@@ -342,7 +342,7 @@ namespace seeks_plugins
       const query_context *qc,
       const std::string &url, const std::string &host,
       const std::string &plugin_name,
-      const int &radius) throw (sp_exception)
+      const int &radius) noexcept(false)
   {
     std::string query = q;
     if (qc)
@@ -423,7 +423,7 @@ namespace seeks_plugins
 
   void query_capture_element::store_queries(const std::string &query,
       const std::string &plugin_name,
-      const int &radius) throw (sp_exception)
+      const int &radius) noexcept(false)
   {
     // generate query fragments.
     hash_multimap<uint32_t,DHTKey,id_hash_uint> features;
@@ -455,7 +455,7 @@ namespace seeks_plugins
 
   void query_capture_element::remove_queries(const std::string &query,
       const std::string &plugin_name,
-      const int &radius) throw (sp_exception)
+      const int &radius) noexcept(false)
   {
     // generate query fragments.
     hash_multimap<uint32_t,DHTKey,id_hash_uint> features;
@@ -492,7 +492,7 @@ namespace seeks_plugins
   void query_capture_element::store_query(const DHTKey &key,
                                           const std::string &query,
                                           const uint32_t &radius,
-                                          const std::string &plugin_name) throw (sp_exception)
+                                          const std::string &plugin_name) noexcept(false)
   {
     std::string key_str = key.to_rstring();
     db_query_record dbqr(plugin_name,query,radius);
@@ -509,7 +509,7 @@ namespace seeks_plugins
   void query_capture_element::remove_query(const DHTKey &key,
       const std::string &query,
       const uint32_t &radius,
-      const std::string &plugin_name) throw (sp_exception)
+      const std::string &plugin_name) noexcept(false)
   {
     std::string key_str = key.to_rstring();
     db_record *dbr = seeks_proxy::_user_db->find_dbr(key_str,plugin_name);
@@ -535,7 +535,7 @@ namespace seeks_plugins
                                         const std::string &url, const std::string &host,
                                         const uint32_t &radius,
                                         const std::string &plugin_name,
-                                        const search_snippet *sp) throw (sp_exception)
+                                        const search_snippet *sp) noexcept(false)
   {
     std::string key_str = key.to_rstring();
     if (!url.empty())
@@ -580,7 +580,7 @@ namespace seeks_plugins
   void query_capture_element::remove_url(const DHTKey &key, const std::string &query,
                                          const std::string &url, const std::string &host,
                                          const short &url_hits, const uint32_t &radius,
-                                         const std::string &plugin_name) throw (sp_exception)
+                                         const std::string &plugin_name) noexcept(false)
   {
     std::string key_str = key.to_rstring();
     if (!url.empty())

@@ -706,7 +706,7 @@ namespace seeks_plugins
                           const int &radius,
                           std::vector<search_snippet*> &snippets,
                           const std::string &host,
-                          const int &port) throw (sp_exception)
+                          const int &port) noexcept(false)
   {
     rank_estimator *sre = rank_estimator::create(cf_configuration::_config->_estimator,
                           cf_configuration::_config->_stop_words_filtering);
@@ -722,7 +722,7 @@ namespace seeks_plugins
 
   void cf::thumb_down_url(const std::string &query,
                           const std::string &lang,
-                          const std::string &url) throw (sp_exception)
+                          const std::string &url) noexcept(false)
   {
     rank_estimator *sre = rank_estimator::create(cf_configuration::_config->_estimator,
                           cf_configuration::_config->_stop_words_filtering);

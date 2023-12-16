@@ -68,7 +68,7 @@ namespace seeks_plugins
 
       static std::string call_readable(const std::string &html, const std::string &url,
                                        const std::string &encoding="utf-8",
-                                       const int &options=PLUGIN_OPTIONS_DEFAULT) throw (sp_exception);
+                                       const int &options=PLUGIN_OPTIONS_DEFAULT) noexcept(false);
   };
 
   class rdbl_elt : public interceptor_plugin

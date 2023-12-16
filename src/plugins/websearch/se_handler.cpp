@@ -688,7 +688,7 @@ namespace seeks_plugins
 
   /*-- queries to the search engines. */
   std::string** se_handler::query_to_ses(const hash_map<const char*, const char*, hash<const char*>, eqstr> *parameters,
-                                         int &nresults, const query_context *qc, const feeds &se_enabled) throw (sp_exception)
+                                         int &nresults, const query_context *qc, const feeds &se_enabled) noexcept(false)
   {
     size_t esize = (se_enabled.has_feed("seeks")) ? se_enabled.size()-1 : se_enabled.size();
     std::vector<std::string> urls;

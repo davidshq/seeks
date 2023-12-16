@@ -43,10 +43,10 @@ namespace seeks_plugins
       virtual ~se_parser();
 
       void parse_output_xml(char *output, std::vector<search_snippet*> *snippets,
-                            const int &count_offset) throw (sp_exception);
+                            const int &count_offset) noexcept(false);
 
       void parse_output(char *output, std::vector<search_snippet*> *snippets,
-                        const int &count_offset) throw (sp_exception);
+                        const int &count_offset) noexcept(false);
 
       // handlers.
       virtual void start_element(parser_context *pc,

@@ -127,7 +127,7 @@ namespace seeks_plugins
       static void feature_based_similarity_scoring(query_context *qc,
           const size_t &nsps,
           search_snippet **sps,
-          search_snippet *ref_sp) throw (sp_exception);
+          search_snippet *ref_sp) noexcept(false);
 
       static bool has_same_content(query_context *qc,
                                    search_snippet *sp1, search_snippet *sp2,

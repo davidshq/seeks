@@ -254,7 +254,7 @@ namespace seeks_plugins
 
   /*-- queries to the image search engines. --*/
   std::string** se_handler_img::query_to_ses(const hash_map<const char*, const char*, hash<const char*>, eqstr> *parameters,
-      int &nresults, const query_context *qc, const feeds &se_enabled) throw (sp_exception)
+      int &nresults, const query_context *qc, const feeds &se_enabled) noexcept(false)
   {
     std::vector<std::string> urls;
     urls.reserve(se_enabled.size());

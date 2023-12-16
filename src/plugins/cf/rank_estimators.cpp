@@ -207,7 +207,7 @@ namespace seeks_plugins
                                         const int &radius,
                                         hash_map<const char*,query_data*,hash<const char*>,eqstr> &qdata,
                                         hash_map<const char*,std::vector<query_data*>,hash<const char*>,eqstr> &inv_qdata,
-                                        peer *pe) throw (sp_exception)
+                                        peer *pe) noexcept(false)
   {
     const std::string host = pe->_host;
     const int port = pe->_port;
@@ -604,7 +604,7 @@ namespace seeks_plugins
 
   db_record* rank_estimator::find_bqc(const std::string &host, const int &port,
                                       const std::string &path, const std::string &query,
-                                      const int &radius, const bool &use_store) throw (sp_exception)
+                                      const int &radius, const bool &use_store) noexcept(false)
   {
     db_record *dbr = NULL;
 
@@ -722,7 +722,7 @@ namespace seeks_plugins
                               std::multimap<double,std::string,std::less<double> > &related_queries,
                               peer *pe,
                               query_context *qc,
-                              const bool &wait_external_sources) throw (sp_exception)
+                              const bool &wait_external_sources) noexcept(false)
   {
     // fetch queries from user DB.
     hash_map<const char*,query_data*,hash<const char*>,eqstr> qdata;
@@ -808,7 +808,7 @@ namespace seeks_plugins
                                  std::vector<search_snippet*> &snippets,
                                  const std::string &host,
                                  const int &port,
-                                 const std::string &rsc) throw (sp_exception)
+                                 const std::string &rsc) noexcept(false)
   {
     // fetch queries from user DB.
     hash_map<const char*,query_data*,hash<const char*>,eqstr> qdata;
@@ -1192,7 +1192,7 @@ namespace seeks_plugins
                                  const int &radius,
                                  hash_map<uint32_t,search_snippet*,id_hash_uint> &snippets,
                                  const std::string &host,
-                                 const int &port) throw (sp_exception)
+                                 const int &port) noexcept(false)
   {
     // fetch queries from user DB.
     hash_map<const char*,query_data*,hash<const char*>,eqstr> qdata;
@@ -1324,7 +1324,7 @@ namespace seeks_plugins
 
   void simple_re::thumb_down_url(const std::string &query,
                                  const std::string &lang,
-                                 const std::string &url) throw (sp_exception)
+                                 const std::string &url) noexcept(false)
   {
     static std::string qc_string = "query-capture";
 

@@ -248,7 +248,7 @@ namespace seeks_plugins
   void sort_rank::score_and_sort_by_similarity(query_context *qc, const char *id_str,
       const hash_map<const char*, const char*, hash<const char*>, eqstr> *parameters,
       search_snippet *&ref_sp,
-      std::vector<search_snippet*> &sorted_snippets) throw (sp_exception)
+      std::vector<search_snippet*> &sorted_snippets) noexcept(false)
   {
     uint32_t id = (uint32_t)strtod(id_str,NULL);
 

@@ -38,13 +38,13 @@ namespace seeks_plugins
                                  const int &port,
                                  const std::string &path,
                                  const std::string &key,
-                                 const std::string &pn) throw (sp_exception);
+                                 const std::string &pn) noexcept(false);
 
       db_record* find_bqc(const std::string &host,
                           const int &port,
                           const std::string &path,
                           const std::string &query,
-                          const uint32_t &expansion) throw (sp_exception);
+                          const uint32_t &expansion) noexcept(false);
 
       static db_record* deserialize_found_record(const std::string &str,
           const std::string &pn);

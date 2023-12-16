@@ -83,11 +83,11 @@ namespace seeks_plugins
                                  const int &radius,
                                  std::vector<search_snippet*> &snippets,
                                  const std::string &host="",
-                                 const int &port=-1) throw (sp_exception);
+                                 const int &port=-1) noexcept(false);
 
       static void thumb_down_url(const std::string &query,
                                  const std::string &lang,
-                                 const std::string &url) throw (sp_exception);
+                                 const std::string &url) noexcept(false);
 
       static void find_bqc_cb(const std::vector<std::string> &qhashes,
                               const int &radius,

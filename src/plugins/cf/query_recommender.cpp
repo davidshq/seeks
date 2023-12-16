@@ -62,7 +62,7 @@ namespace seeks_plugins
       const std::string &lang,
       const uint32_t &expansion,
       std::multimap<double,std::string,std::less<double> > &related_queries,
-      peer *pe) throw (sp_exception)
+      peer *pe) noexcept(false)
   {
     // fetch queries from user DB.
     hash_map<const char*,query_data*,hash<const char*>,eqstr> qdata;

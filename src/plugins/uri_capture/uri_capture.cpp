@@ -343,7 +343,7 @@ namespace seeks_plugins
     return NULL; // no response, so the proxy does not crunch this HTTP request.
   }
 
-  void uri_capture_element::store_uri(const std::string &uri, const std::string &host) const throw (sp_exception)
+  void uri_capture_element::store_uri(const std::string &uri, const std::string &host) const noexcept(false)
   {
     // add record to user db.
     db_uri_record dbur(_parent->get_name());
@@ -379,7 +379,7 @@ namespace seeks_plugins
       }
   }
 
-  void uri_capture_element::remove_uri(const std::string &uri, const std::string &host) const throw (sp_exception)
+  void uri_capture_element::remove_uri(const std::string &uri, const std::string &host) const noexcept(false)
   {
     int uri_hits = 1;
     if (!uri.empty())

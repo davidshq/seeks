@@ -65,7 +65,7 @@ namespace seeks_plugins
       virtual void generate(client_state *csp,
                             http_response *rsp,
                             const hash_map<const char*,const char*,hash<const char*>,eqstr> *parameters,
-                            bool &expanded) throw (sp_exception);
+                            bool &expanded) noexcept(false);
 
       /**
        * \brief perform expansion.
@@ -74,7 +74,7 @@ namespace seeks_plugins
                   http_response *rsp,
                   const hash_map<const char*,const char*,hash<const char*>,eqstr> *parameters,
                   const int &page_start, const int &page_end,
-                  const feeds &se_enabled) throw (sp_exception);
+                  const feeds &se_enabled) noexcept(false);
 
       /**
        * virtual call to evaluate the sweeping condition.

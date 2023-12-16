@@ -47,7 +47,7 @@ namespace seeks_plugins
                              const std::string &lang,
                              const uint32_t &expansion,
                              std::multimap<double,std::string,std::less<double> > &related_queries,
-                             peer *pe) throw (sp_exception);
+                             peer *pe) noexcept(false);
 
       static void recommend_queries(const std::string &query,
                                     const std::string &lang,

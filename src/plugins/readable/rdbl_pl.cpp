@@ -117,7 +117,7 @@ namespace seeks_plugins
   }
 
   std::string rdbl_pl::call_readable(const std::string &html, const std::string &url,
-                                     const std::string &encoding, const int &options) throw (sp_exception)
+                                     const std::string &encoding, const int &options) noexcept(false)
   {
     char *rdbl_html = readable(html.c_str(),url.c_str(),
                                encoding.empty()?NULL:encoding.c_str(),options);

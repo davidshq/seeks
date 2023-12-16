@@ -145,7 +145,7 @@ namespace seeks_plugins
   void img_sort_rank::score_and_sort_by_similarity(img_query_context *qc, const char *id_str,
       img_search_snippet *&ref_sp,
       std::vector<search_snippet*> &sorted_snippets,
-      const hash_map<const char*, const char*, hash<const char*>, eqstr> *parameters) throw (sp_exception)
+      const hash_map<const char*, const char*, hash<const char*>, eqstr> *parameters) noexcept(false)
   {
     uint32_t id = (uint32_t)strtod(id_str,NULL);
 

@@ -94,7 +94,7 @@ namespace seeks_plugins
     public:
       /*-- querying the search engines. --*/
       static std::string** query_to_ses(const hash_map<const char*, const char*, hash<const char*>, eqstr> *parameters,
-                                        int &nresults, const query_context *qc, const feeds &se_enabled) throw (sp_exception);
+                                        int &nresults, const query_context *qc, const feeds &se_enabled) noexcept(false);
 
       static void query_to_se(const hash_map<const char*, const char*, hash<const char*>, eqstr> *parameters,
                               const feed_parser &se, std::vector<std::string> &all_urls, const query_context *qc,

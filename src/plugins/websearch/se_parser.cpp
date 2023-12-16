@@ -76,7 +76,7 @@ namespace seeks_plugins
   }
 
   void se_parser::parse_output_xml(char *output, std::vector<search_snippet*> *snippets,
-                                   const int &count_offset) throw (sp_exception)
+                                   const int &count_offset) noexcept(false)
   {
     _count = count_offset;
 
@@ -188,7 +188,7 @@ namespace seeks_plugins
 
   void se_parser::parse_output(char *output,
                                std::vector<search_snippet*> *snippets,
-                               const int &count_offset) throw (sp_exception)
+                               const int &count_offset) noexcept(false)
   {
     _count = count_offset;
 

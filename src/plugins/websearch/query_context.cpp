@@ -262,7 +262,7 @@ namespace seeks_plugins
   void query_context::generate(client_state *csp,
                                http_response *rsp,
                                const hash_map<const char*,const char*,hash<const char*>,eqstr> *parameters,
-                               bool &expanded) throw (sp_exception)
+                               bool &expanded) noexcept(false)
   {
     expanded = false;
     const char *expansion = miscutil::lookup(parameters,"expansion");
@@ -361,7 +361,7 @@ namespace seeks_plugins
                              http_response *rsp,
                              const hash_map<const char*,const char*,hash<const char*>,eqstr> *parameters,
                              const int &page_start, const int &page_end,
-                             const feeds &se_enabled) throw (sp_exception)
+                             const feeds &se_enabled) noexcept(false)
   {
     for (int i=page_start; i<page_end; i++) // catches up with requested horizon.
       {

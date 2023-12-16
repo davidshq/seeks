@@ -21,7 +21,7 @@ Dependencies:
 - libxml2
 - libpcre (libpcre3-dev)
 - tokyo cabinet (tokyocabinet-bin)
-- protocol buffers (libprotobuf-dev)
+- protocol buffers (protobuf-compiler)
 - libevent (optional, 2.x preferred)
 - opencv (optional)
 - docbook2x-man (optional)

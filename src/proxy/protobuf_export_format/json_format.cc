@@ -761,7 +761,7 @@ bool JSONFormat::Parser::MergeUsingImpl(google::protobuf::io::ZeroCopyInputStrea
                                         ParserImpl* parser_impl) {
   if (!parser_impl->Parse(output)) return false;
   if (!allow_partial_ && !output->IsInitialized()) {
-    vector<string> missing_fields;
+    std::vector<string> missing_fields;
     output->FindInitializationErrors(&missing_fields);
     parser_impl->ReportError(-1, 0, "Message missing required fields: " +
                                     JoinStrings(missing_fields, ", "));
@@ -856,7 +856,7 @@ bool JSONFormat::Printer::PrintUnknownFields(
 void JSONFormat::Printer::Print(const Message& message,
                                 TextGenerator& generator) {
   const Reflection* reflection = message.GetReflection();
-  vector<const FieldDescriptor*> fields;
+  std::vector<const FieldDescriptor*> fields;
   reflection->ListFields(message, &fields);
   for (int i = 0; i < fields.size(); i++) {
     PrintField(message, reflection, fields[i], generator);

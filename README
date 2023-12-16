@@ -20,7 +20,8 @@ Dependencies:
 - libcurl (libcurl4-gnutls-dev, libcurl4-openssl-dev)
 - libxml2
 - libpcre (libpcre3-dev)
-- tokyo cabinet (tokyocabinet-bin)
+- tokyo cabinet (libtokyocabinet-dev)
+- tokyo tyrant (see section 5 below)
 - protocol buffers (protobuf-compiler)
 - libevent (optional, 2.x preferred)
 - opencv (optional)
@@ -70,4 +71,9 @@ https://github.com/beniz/seeks/issues
 For discussion and getting more immediate help, join us on irc,
 channel #seeks on irc.freenode.net
 
+5. Installing Tokyo Tyrant
+- Download the source code: https://github.com/hthetiot/Tokyo-Tyrant
+- `./configure`
+- `make`
+- `sudo make install`
 

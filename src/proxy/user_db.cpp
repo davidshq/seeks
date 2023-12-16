@@ -746,7 +746,16 @@ namespace sp
     output << "size on disk: " << disk_size() << std::endl;
     output << "db version: " << get_version() << std::endl;
     output << std::endl;
-    output << export_db(output,"text") << std::endl;
+
+    std::string format = "text";  // Set the desired format
+    std::ostream& exportResult = export_db(output, format);
+
+    if (&exportResult != &output) {
+        // Handle the error case here, or return an error code, etc.
+        errlog::log_error(LOG_LEVEL_ERROR, "Failed to export user database in format %s.", format.c_str());
+    }
+
+    output << std::endl;  // Add a newline after export, if desired
     return output;
   }
 

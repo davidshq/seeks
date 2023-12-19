@@ -746,7 +746,8 @@ namespace sp
     output << "size on disk: " << disk_size() << std::endl;
     output << "db version: " << get_version() << std::endl;
     output << std::endl;
-    output << export_db(output,"text") << std::endl;
+    export_db(output,"text");
+    output << std::endl;
     return output;
   }
 

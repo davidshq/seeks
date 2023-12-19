@@ -37,6 +37,7 @@
 #include <stdio.h>
 #include <iterator>
 #include <google/protobuf/stubs/logging.h>
+#include <../boost/scoped_array.hpp>
 
 #include "strutil.h"
 
@@ -402,7 +403,7 @@ int UnescapeCEscapeString(const string& src, string* dest) {
 
 int UnescapeCEscapeString(const string& src, string* dest,
                           std::vector<string> *errors) {
-  scoped_array<char> unescaped(new char[src.size() + 1]);
+  boost::scoped_array<char> unescaped(new char[src.size() + 1]);
   int len = UnescapeCEscapeSequences(src.c_str(), unescaped.get(), errors);
   GOOGLE_CHECK(dest);
   dest->assign(unescaped.get(), len);
@@ -410,7 +411,7 @@ int UnescapeCEscapeString(const string& src, string* dest,
 }
 
 string UnescapeCEscapeString(const string& src) {
-  scoped_array<char> unescaped(new char[src.size() + 1]);
+  boost::scoped_array<char> unescaped(new char[src.size() + 1]);
   int len = UnescapeCEscapeSequences(src.c_str(), unescaped.get(), NULL);
   return string(unescaped.get(), len);
 }
@@ -488,7 +489,7 @@ int CEscapeString(const char* src, int src_len, char* dest, int dest_len) {
 // ----------------------------------------------------------------------
 string CEscape(const string& src) {
   const int dest_length = src.size() * 4 + 1; // Maximum possible expansion
-  scoped_array<char> dest(new char[dest_length]);
+  boost::scoped_array<char> dest(new char[dest_length]);
   const int len = CEscapeInternal(src.data(), src.size(),
                                   dest.get(), dest_length, false, false);
   GOOGLE_DCHECK_GE(len, 0);
@@ -499,7 +500,7 @@ namespace strings {
 
 string Utf8SafeCEscape(const string& src) {
   const int dest_length = src.size() * 4 + 1; // Maximum possible expansion
-  scoped_array<char> dest(new char[dest_length]);
+  boost::scoped_array<char> dest(new char[dest_length]);
   const int len = CEscapeInternal(src.data(), src.size(),
                                   dest.get(), dest_length, false, true);
   GOOGLE_DCHECK_GE(len, 0);
@@ -508,7 +509,7 @@ string Utf8SafeCEscape(const string& src) {
 
 string CHexEscape(const string& src) {
   const int dest_length = src.size() * 4 + 1; // Maximum possible expansion
-  scoped_array<char> dest(new char[dest_length]);
+  boost::scoped_array<char> dest(new char[dest_length]);
   const int len = CEscapeInternal(src.data(), src.size(),
                                   dest.get(), dest_length, true, false);
   GOOGLE_DCHECK_GE(len, 0);
@@ -1014,10 +1015,10 @@ char* DoubleToBuffer(double value, char* buffer) {
   // this assert.
   GOOGLE_COMPILE_ASSERT(DBL_DIG < 20, DBL_DIG_is_too_big);
 
-  if (value == numeric_limits<double>::infinity()) {
+  if (value == std::numeric_limits<double>::infinity()) {
     strcpy(buffer, "inf");
     return buffer;
-  } else if (value == -numeric_limits<double>::infinity()) {
+  } else if (value == -std::numeric_limits<double>::infinity()) {
     strcpy(buffer, "-inf");
     return buffer;
   } else if (IsNaN(value)) {
@@ -1069,10 +1070,10 @@ char* FloatToBuffer(float value, char* buffer) {
   // this assert.
   GOOGLE_COMPILE_ASSERT(FLT_DIG < 10, FLT_DIG_is_too_big);
 
-  if (value == numeric_limits<double>::infinity()) {
+  if (value == std::numeric_limits<double>::infinity()) {
     strcpy(buffer, "inf");
     return buffer;
-  } else if (value == -numeric_limits<double>::infinity()) {
+  } else if (value == -std::numeric_limits<double>::infinity()) {
     strcpy(buffer, "-inf");
     return buffer;
   } else if (IsNaN(value)) {

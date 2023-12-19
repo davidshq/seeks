@@ -420,7 +420,7 @@ namespace sp
             hport = 0;
             return; // should never get here.
           }
-        if (haddr == '\0')
+        if (*haddr == '\0')
           {
             /*
              * Only the port specified. We stored it in hport

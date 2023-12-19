@@ -1,3 +1,4 @@
+syntax="proto2";
 package sp.db;
 
 import "db_record_msg.proto";
@@ -29,9 +30,4 @@ message related_query
  required string query = 2;             /* query (may be hashed). */
  required uint32 query_hits = 3;        /* number of query hits. */
  required visited_urls vurls = 4;       /* visited urls for this query. */
-}
-
-extend sp.db.record
-{
- required related_queries queries = 20; /* original queries */
 }

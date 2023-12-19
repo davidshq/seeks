@@ -22,10 +22,13 @@ Dependencies:
 - libpcre (libpcre3-dev)
 - tokyo cabinet (libtokyocabinet-dev)
 - tokyo tyrant (see section 5 below)
-- protocol buffers (protobuf-compiler)
+- protocol buffers (libprotopuf-dev, protobuf-compiler)
 - libevent (optional, 2.x preferred)
 - opencv (optional)
 - docbook2x-man (optional)
+
+Maybe:
+- libbost (libbost-all-dev)
 
 From the root directory, run
 ./autogen.sh

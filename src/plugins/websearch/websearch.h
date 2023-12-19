@@ -175,7 +175,7 @@ namespace seeks_plugins
 
       static void preprocess_parameters(const hash_map<const char*, const char*, hash<const char*>, eqstr> *parameters,
                                         client_state *csp,
-                                        bool &has_lang) throw (sp_exception);
+                                        bool &has_lang) noexcept(false);
 
       static void reset_p2p_data(const hash_map<const char*, const char*, hash<const char*>, eqstr> *parameters,
                                  query_context *qc);

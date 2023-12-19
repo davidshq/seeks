@@ -84,9 +84,9 @@ namespace seeks_plugins
 
       virtual http_response* plugin_response(client_state *csp);
 
-      void store_uri(const std::string &uri, const std::string &host) const throw (sp_exception);
+      void store_uri(const std::string &uri, const std::string &host) const noexcept(false);
 
-      void remove_uri(const std::string &uri, const std::string &host) const throw (sp_exception);
+      void remove_uri(const std::string &uri, const std::string &host) const noexcept(false);
 
       static std::string prepare_uri(const std::string &uri);
 

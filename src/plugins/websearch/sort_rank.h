@@ -57,7 +57,7 @@ namespace seeks_plugins
       static void score_and_sort_by_similarity(query_context *qc, const char *id_str,
           const hash_map<const char*, const char*, hash<const char*>, eqstr> *parameters,
           search_snippet *&ref_sp,
-          std::vector<search_snippet*> &sorted_snippets) throw (sp_exception);
+          std::vector<search_snippet*> &sorted_snippets) noexcept(false);
 
       //static void group_by_types(query_context *qc, cluster *&clusters, short &K);
       static void group_by_types(query_context *qc, hash_map<int,cluster*> *clusters);
@@ -67,9 +67,9 @@ namespace seeks_plugins
       static void personalize(query_context *qc,
                               const hash_map<const char*,const char*,hash<const char*>,eqstr> *parameters);
       /*static void personalized_rank_snippets(query_context *qc,
-                                             std::vector<search_snippet*> &snippets) throw (sp_exception);
-      static void get_related_queries(query_context *qc) throw (sp_exception);
-      static void get_recommended_urls(query_context *qc) throw (sp_exception);*/
+                                             std::vector<search_snippet*> &snippets) noexcept(false);
+      static void get_related_queries(query_context *qc) noexcept(false);
+      static void get_recommended_urls(query_context *qc) noexcept(false);*/
 #endif
   };
 
